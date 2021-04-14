@@ -1,15 +1,15 @@
-# nextjs-typescript-starter
+# nextjs-microcms-blog
 
-## create project
+## add config to .env
 
 ```bash
-npx create-next-app app --example "https://github.com/redimpulz/nextjs-typescript-starter"
+MICRO_CMS_API_ENDPOINT=
+MICRO_CMS_API_KEY=
 ```
 
-## features
+## run
 
-* Next.js
-* TypeScript
-* ESlint
-* Prettier
-* VScode Extentions
+```bash
+$ yarn
+$ yarn dev
+```
