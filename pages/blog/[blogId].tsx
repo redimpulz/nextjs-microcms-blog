@@ -10,22 +10,18 @@ import { Blog } from '@/api/blog/_blogId';
 import Layout from '@/components/organisms/Layout';
 import Main from '@/components/pages/blog/[blogId]/Main';
 
+import * as pathUtils from '@/utils/pathUtils';
+
 export const getStaticPaths = () => ({
   paths: [],
   fallback: true,
 });
 
-export const getStaticProps = async ({
-  params,
-  previewData,
-}: GetStaticPropsContext) => {
-  const blogId = typeof params?.blogId === 'string' ? params.blogId : '';
-  const draftKey: string | undefined = previewData?.draftKey;
-  let blog: Blog | undefined = undefined;
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+  const blogId = pathUtils.filterQueryValueToString(params?.blogId);
+  let blog: Blog | null = null;
   try {
-    blog = await api.blogId.get(blogId, {
-      draftKey,
-    });
+    blog = await api.blogId.get(blogId, {});
   } catch (error) {
     console.log(error);
   }

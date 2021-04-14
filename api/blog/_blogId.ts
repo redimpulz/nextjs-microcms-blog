@@ -15,7 +15,6 @@ export type GetRes = Blog;
 
 export type ReqParams = {
   fields?: string;
-  draftKey?: string;
 };
 
 const get = (topicId: string, reqParams: ReqParams) => {

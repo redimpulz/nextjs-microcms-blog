@@ -20,7 +20,6 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const page = pathUtils.filterQueryValueToInt(params?.page) || 1;
   let totalCount = 0;
   let blogs: Blog[] = [];
-
   try {
     const data = await api.blog.get({
       limit: BLOG_NUMBER_PER_PAGE,
@@ -32,7 +31,6 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   } catch (error) {
     console.log(error);
   }
-
   return {
     props: {
       totalCount,
