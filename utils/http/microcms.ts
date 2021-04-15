@@ -5,11 +5,7 @@ const http = ky.create({
   hooks: {
     beforeRequest: [
       async (request) => {
-        try {
-          request.headers.set('X-API-KEY', process.env.MICRO_CMS_API_KEY);
-        } catch (error) {
-          console.log(error);
-        }
+        request.headers.set('X-API-KEY', process.env.MICRO_CMS_API_KEY);
       },
     ],
   },
