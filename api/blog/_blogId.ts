@@ -17,9 +17,9 @@ export type ReqParams = {
   fields?: string;
 };
 
-const get = (topicId: string, reqParams: ReqParams) => {
+const get = (blogId: string, reqParams: ReqParams) => {
   const query = queryString.stringify(reqParams);
-  return http.get(`blog/${topicId}?${query}`).json<GetRes>();
+  return http.get(`blog/${blogId}?${query}`).json<GetRes>();
 };
 
 export { get };
